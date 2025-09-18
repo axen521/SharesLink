@@ -19,8 +19,10 @@
         color: blue;
         border: 1px solid white;
         border-radius: 5px;
-        padding: 3px;
+        padding: 8px 12px;
         text-decoration: none;
+        display: block; /* mobilde genişliği daha rahat kontrol eder */
+        text-align: center;
       }
 
       ul {
@@ -31,13 +33,31 @@
 
       li {
         color: white;
-        margin: 5px 0;
+        margin: 8px 0;
       }
 
-      /* kolonları yan yana dizer */
       .container {
         display: flex;
-        gap: 40px; /* kolonlar arası boşluk */
+        gap: 40px;
+      }
+
+      /* -------- MOBİL GÖRÜNÜM -------- */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column; /* kolonlar alt alta */
+          gap: 20px;
+        }
+
+        a {
+          font-size: 24px;        /* yazılar daha büyük */
+          width: 80%;             /* ekranın %80’i kadar geniş */
+          margin: 10px auto;      /* ortalanmış */
+        }
+
+        h1 {
+          font-size: 40px;        /* başlık küçülür */
+          text-align: center;
+        }
       }
     </style>
   </head>
