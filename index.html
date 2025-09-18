@@ -1,47 +1,19 @@
 <html>
   <head>
     <style>
-      /* PC için (geniş ekranlar) */
-@media (min-width: 1025px) {
-  body {
-    font-size: 20px;
-    font-family: Arial, sans-serif;
-  }
-        h1 {
-        font-size: 70px;
-        }
-}
-
-/* Tablet için (orta boyut ekranlar) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  body {
-    font-size: 70px;
-    font-family: "Trebuchet MS", sans-serif;
-  }
-        h1 {
-        font-size: 170px;
-        }
-}
-
-/* Mobil için (küçük ekranlar) */
-@media (max-width: 768px) {
-  body {
-    font-size: 100px;
-    font-family: "Verdana", sans-serif;
-  }
-        h1 {
-        font-size: 150px;
-        }
-}
-
       body {
         background-color: black;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
       }
 
       h1 {
         color: white;
         border-bottom: 1px solid white;
-        padding: 3px;
+        padding: 10px;
+        margin: 0 0 20px 0;
+        font-size: 48px; /* PC varsayılan */
       }
 
       a {
@@ -51,8 +23,9 @@
         border-radius: 5px;
         padding: 8px 12px;
         text-decoration: none;
-        display: block; /* mobilde genişliği daha rahat kontrol eder */
+        display: block;
         text-align: center;
+        font-size: 18px; /* PC varsayılan */
       }
 
       ul {
@@ -62,31 +35,47 @@
       }
 
       li {
-        color: white;
         margin: 8px 0;
+      }
+
+      h3 {
+        color: white;
+        margin: 10px 0;
       }
 
       .container {
         display: flex;
         gap: 40px;
+        padding: 0 20px;
       }
 
-      /* -------- MOBİL GÖRÜNÜM -------- */
+      /* -------- Tablet -------- */
+      @media (max-width: 1024px) and (min-width: 769px) {
+        h1 {
+          font-size: 36px;
+          text-align: center;
+        }
+        a {
+          font-size: 16px;
+        }
+      }
+
+      /* -------- Mobil -------- */
       @media (max-width: 768px) {
         .container {
           flex-direction: column; /* kolonlar alt alta */
           gap: 20px;
         }
 
-        a {
-          font-size: 24px;        /* yazılar daha büyük */
-          width: 80%;             /* ekranın %80’i kadar geniş */
-          margin: 10px auto;      /* ortalanmış */
+        h1 {
+          font-size: 28px;
+          text-align: center;
         }
 
-        h1 {
-          font-size: 40px;        /* başlık küçülür */
-          text-align: center;
+        a {
+          font-size: 20px;   /* linkler daha büyük */
+          width: 80%;        /* ekranın %80’i */
+          margin: 10px auto; /* ortalanmış */
         }
       }
     </style>
@@ -96,7 +85,7 @@
 
     <div class="container">
       <div>
-        <h3 style="color:white;">1–10</h3>
+        <h3>1–10</h3>
         <ul>
           <li><a href="File1">Dosya1</a></li>
           <li><a href="File2">Dosya2</a></li>
@@ -112,7 +101,7 @@
       </div>
 
       <div>
-        <h3 style="color:white;">11–20</h3>
+        <h3>11–20</h3>
         <ul>
           <li><a href="File11">Dosya11</a></li>
           <li><a href="File12">Dosya12</a></li>
@@ -128,7 +117,7 @@
       </div>
 
       <div>
-        <h3 style="color:white;">21–30</h3>
+        <h3>21–30</h3>
         <ul>
           <li><a href="File21">Dosya21</a></li>
           <li><a href="File22">Dosya22</a></li>
