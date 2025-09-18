@@ -3,15 +3,34 @@
     <title>File()</title>
   </head>
   <body>
-    <h1>Dosyanız bulunamadı.</h1>
-    <a>Lütfen sitesahibi ile irtibata geçin, dosya sisteme işlenmemiş olabilir.</a>
+    <h1 id="header">Dosyanız bulunamadı.</h1>
+    <p id="details"></p>
+    <a id="download" style="display:none;">İndir</a>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const fileId = params.get("file");
+
+      // Basit key-value database
+      const files = {
+        "1": { name: "Rapor", type: "PDF", url: "/downloads/rapor.pdf" },
+        "2": { name: "Sunum", type: "PPTX", url: "/downloads/sunum.pptx" },
+        "5": { name: "Proje Kodu", type: "ZIP", url: "/downloads/proje.zip" }
+      };
+
+      if (fileId && files[fileId]) {
+        const f = files[fileId];
+        document.getElementById("header").textContent = "Dosyanız hazır.";
+        document.getElementById("details").textContent = f.name + " (" + f.type + ")";
+        const link = document.getElementById("download");
+        link.href = f.url;
+        link.style.display = "inline-block";
+      }
+    </script>
+
+    <style>
+      body { background-color: black; color: white; font-family: sans-serif; }
+      a { color: cyan; text-decoration: underline; }
+    </style>
   </body>
-  <script>
-    
-  </script>
-  <style>
-    body{
-      background-color:black;
-    }
-  </style>
 </html>
